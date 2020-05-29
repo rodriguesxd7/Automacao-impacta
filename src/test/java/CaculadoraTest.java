@@ -13,6 +13,8 @@ import org.powermock.modules.junit4.PowerMockRunner;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyChar;
 
+
+//Adicionando a pasta target
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(Calculadora.class)
 public class CaculadoraTest {
@@ -23,10 +25,10 @@ public class CaculadoraTest {
         final String METHOD = "getDez";
 
         Calculadora spy = PowerMockito.spy(calc);
-        PowerMockito.when(spy, METHOD).thenReturn((int) 20);
+        PowerMockito.when(spy, METHOD).thenReturn((int) 30);
 
         int atual = 0;
-        int esperado = 23;
+        int esperado = 33;
 
         atual = spy.somarDez(3);
 
