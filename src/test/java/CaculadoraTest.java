@@ -1,3 +1,6 @@
+import org.powermock.modules.junit4.PowerMockRunner;
+import org.mockito.Mockito;
+import org.powermock.api.mockito.PowerMockito;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -5,6 +8,8 @@ import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyChar;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(Calculadora.class)
@@ -13,15 +18,15 @@ public class CaculadoraTest {
     @Test
     public void mock() throws Exception {
         Calculadora calc = new Calculadora();
-        final String METHOD = "somar";
+        final String METHOD = "getDez";
 
         Calculadora spy = PowerMockito.spy(calc);
-            PowerMockito.when(spy, METHOD).thenReturn((int) 10);
+            PowerMockito.when(spy, METHOD).thenReturn((int) 20);
 
         int atual = 0;
-        int esperado = 20;
+        int esperado = 23;
 
-        atual = spy.somar(5, 5);
+        atual = spy.somarDez(3);
 
         // act
         Assert.assertEquals(esperado, atual);
