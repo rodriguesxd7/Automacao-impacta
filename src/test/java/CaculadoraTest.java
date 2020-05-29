@@ -1,3 +1,5 @@
+import org.junit.Assert;
+import org.junit.Test;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
@@ -21,7 +23,7 @@ public class CaculadoraTest {
         final String METHOD = "getDez";
 
         Calculadora spy = PowerMockito.spy(calc);
-            PowerMockito.when(spy, METHOD).thenReturn((int) 20);
+        PowerMockito.when(spy, METHOD).thenReturn((int) 20);
 
         int atual = 0;
         int esperado = 23;
@@ -75,7 +77,7 @@ public class CaculadoraTest {
         //assert
         Assert.assertEquals(esperado, atual);
     }
-     @Test
+    @Test
     public void subtrairValorNegativo() {
         //arrange
         Calculadora calc = new Calculadora();
